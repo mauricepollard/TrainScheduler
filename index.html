@@ -6,7 +6,7 @@
         Train Scheduler
     </title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -17,31 +17,32 @@
 <body>
 
     <div class="container">
-
+        <div id="row1">Train Scheduler</div>
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                        <div class="container">
-                                <div class="row">
-                                    <div class="col-sm">
-                                        Train Name
-                                    </div>
-                                    <div class="col-sm">
-                                        Destination
-                                    </div>
-                                    <div class="col-sm">
-                                        Train time
-                                    </div>
-                                    <div class="col-sm">
-                                        Frequency
-                                    </div>
-                                    <div class="col-sm">
-                                        Arrival
-                                    </div>
-                                </div>
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-sm">
+                                Train Name
                             </div>
+                            <div class="col-sm">
+                                Destination
+                            </div>
+                            <div class="col-sm">
+                                Train time
+                            </div>
+                            <div class="col-sm">
+                                Frequency
+                            </div>
+                            <div class="col-sm">
+                                Arrival
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body" >
+                <div class="card-body">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm">
@@ -74,24 +75,24 @@
 
                     <form role="form">
                         <div class="form-group">
-                            <label for="train-name-input">Train Name:</label>
-                            <input class="form-control" id="train-name-input" type="text">
+
+                            <input class="form-control" id="train-name-input" type="text" placeholder="Train Name">
                         </div>
                         <div class="form-group">
-                            <label for="destination-input">Destination:</label>
-                            <input class="form-control" id="destination-input" type="text">
+
+                            <input class="form-control" id="destination-input" type="text" placeholder="Destination">
                         </div>
                         <div class="form-group">
-                            <label for="train-time-input">Train time (HH:mm military time):</label>
-                            <input class="form-control" id="train-time-input" type="text">
+
+                            <input class="form-control" id="train-time-input" type="text"
+                                placeholder="Train time (HH:mm military time)">
                         </div>
                         <div class="form-group">
-                            <label for="frequency-input">Frequency:</label>
-                            <input class="form-control" id="frequency-input" type="text">
+
+                            <input class="form-control" id="frequency-input" type="text" placeholder="Frequency">
                         </div>
                         <div class="form-group">
-                            <label for="minutes-input">Minutes Away:</label>
-                            <input class="form-control" id="minutes-input" type="text">
+                            <input class="form-control" id="minutes-input" type="text" placeholder="Minutes Away">
                         </div>
                         <button class="btn btn-default" id="add-train" type="submit">Submit</button>
                     </form>

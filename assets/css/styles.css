@@ -7,3 +7,16 @@
     background-color: #021f59;
     color: white;
 }
+#row1{
+    background-color: #021f59;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.card-body{
+    border: solid;
+}
