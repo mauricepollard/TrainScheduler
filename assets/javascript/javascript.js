@@ -35,6 +35,7 @@ $("#add-train").on("click", function (event) {
         frequency: frequency,
         minutesaway: minutesaway
     });
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 
 
 });
@@ -50,6 +51,7 @@ database.ref().on("value", function (snapshot) {
     $("#train-time-display").text(snapshot.val().trainTime);
     $("#frequency-display").text("Every "+snapshot.val().frequency+ " Minutes");
     $("#minutes-display").text(snapshot.val().minutesaway + " Minutes");
+    
 }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
 });
