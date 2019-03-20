@@ -63,34 +63,29 @@ database.ref().on("child_added", function (snapshot) {
     
     newRow.attr("class", "row");
     
-    var col1 = $("<div>");
+    
     col1.attr("class", "col-sm");
     col1.append(P1);
     P1.text(snapshot.val().trainName);
     newRow.append(col1);
-    
-    
-    var col2 = $("<div>");
+     
     col2.attr("class", "col-sm");
     col2.append(P2);
     P2.text(snapshot.val().destination);
     newRow.append(col2);
-    
-    var col3 = $("<div>");
+      
     col3.attr("class", "col-sm");
     col3.append(P3);
     P3.text(snapshot.val().trainTime);
     newRow.append(col3);
-    
-    var col4 = $("<div>");
+      
     col4.attr("class", "col-sm");
     col4.append(P4);
     P4.text(snapshot.val().frequency);
     newRow.append(col4);
 
-    var col5 = $("<div>");
     col5.attr("class", "col-sm");
-    col5.append(P4);
+    col5.append(P5);
     P5.text(snapshot.val().minutesaway);
     newRow.append(col5);
 
