@@ -11,13 +11,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 </head>
 
 <body>
 
     <div class="container">
-        <!-- <div id="row1">Train Scheduler</div> -->
+        <div id="row1">Train Scheduler</div>
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
@@ -60,24 +61,22 @@
                     <form role="form">
                         <div class="form-group">
 
-                            <input class="form-control" id="train-name-input" type="text" placeholder="Train Name">
+                            <input class="form-control" id="train-name-input" type="text" placeholder="Train Name" onchange="textboxInputValadation()">
                         </div>
                         <div class="form-group">
 
-                            <input class="form-control" id="destination-input" type="text" placeholder="Destination">
+                            <input class="form-control" id="destination-input" type="text" placeholder="Destination" onchange="textboxInputValadation()">
                         </div>
                         <div class="form-group">
 
                             <input class="form-control" id="train-time-input" type="text"
-                                placeholder="Train time (HH:mm military time)">
+                                placeholder="Train time (HH:mm military time)" onchange="textboxInputValadation()">
                         </div>
                         <div class="form-group">
 
-                            <input class="form-control" id="frequency-input" type="number" placeholder="Frequency">
+                            <input class="form-control" id="frequency-input" type="text" placeholder="Frequency" onchange="textboxInputValadation()">
                         </div>
-                        <div class="form-group">
-                            <input class="form-control" id="minutes-input" type="number" placeholder="Minutes Away">
-                        </div>
+                    
                         <button class="btn btn-default" id="add-train" type="submit">Submit</button>
                     </form>
                 </div>

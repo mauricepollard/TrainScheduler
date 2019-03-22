@@ -12,9 +12,10 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+$("#add-train").attr("disabled", true);
 
 $("#add-train").on("click", function (event) {
-
+    
     event.preventDefault();
 
 
@@ -22,8 +23,23 @@ $("#add-train").on("click", function (event) {
     var destination = $("#destination-input").val().trim();
     var trainTime = $("#train-time-input").val().trim();
     var frequency = $("#frequency-input").val().trim();
-    var minutesaway = $("#minutes-input").val().trim();
 
+
+
+
+    // First Time (pushed back 1 year to make sure it comes before current time)
+    var timeConverted = moment(trainTime, "HH:mm").subtract(1, "years");
+
+    // Difference between the times
+    var diff = moment().diff(moment(timeConverted), "minutes");
+
+    // Time apart (remainder)
+    var mod = diff % frequency;
+
+    // Minute Until Train
+    var minutesaway = frequency - mod;
+
+    
     database.ref().push({
         trainName: trainName,
         destination: destination,
@@ -31,16 +47,25 @@ $("#add-train").on("click", function (event) {
         frequency: frequency,
         minutesaway: minutesaway
     });
-    //  $("#train-name-input").val(" ");
-    //  $("#destination-input").val(" ");
-    //  $("#train-time-input").val(" ");
-    //  $("#frequency-input").val(" ");
-    //  $("#minutes-input").val(" ");
+
+
+    $("input:text").val("");
+
 
 
 });
 
+function textboxInputValadation(){
+   
+    if( $(".form-control").val() == ''){
+        $("#add-train").attr("disabled", true);
+        return;
+    }else{
+        $("#add-train").attr("disabled", false);
+    }
 
+    
+}
 
 database.ref().on("child_added", function (snapshot) {
     var newRow = $("<div>");
@@ -59,34 +84,34 @@ database.ref().on("child_added", function (snapshot) {
 
     var col5 = $("<div>");
     var P5 = $("<p>");
-    
-    
+
+
     newRow.attr("class", "row");
-    
-    
+
+
     col1.attr("class", "col-sm");
     col1.append(P1);
     P1.text(snapshot.val().trainName);
     newRow.append(col1);
-     
+
     col2.attr("class", "col-sm");
     col2.append(P2);
     P2.text(snapshot.val().destination);
     newRow.append(col2);
-      
+
     col3.attr("class", "col-sm");
     col3.append(P3);
     P3.text(snapshot.val().trainTime);
     newRow.append(col3);
-      
+
     col4.attr("class", "col-sm");
     col4.append(P4);
-    P4.text(snapshot.val().frequency);
+    P4.text(snapshot.val().frequency + " mins");
     newRow.append(col4);
 
     col5.attr("class", "col-sm");
     col5.append(P5);
-    P5.text(snapshot.val().minutesaway);
+    P5.text(snapshot.val().minutesaway + " mins");
     newRow.append(col5);
 
     $("#display").prepend(newRow);
